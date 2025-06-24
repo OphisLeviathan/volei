@@ -2,8 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de Vôlei</title>
+    <title>Área de Alunos - Vôlei Brasil</title>
     <style>
         :root {
             --verde-claro: #A8E6CF;
@@ -15,10 +14,10 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--branco);
             color: var(--verde-escuro);
+            margin: 0;
+            padding: 0;
             font-size: 25px;
         }
 
@@ -76,28 +75,20 @@
             padding: 30px;
         }
 
-        .metodologia, .categorias, .contato {
-            margin-bottom: 40px;
-        }
-
         h2 {
             color: var(--verde-escuro);
         }
 
-        .highlight {
-            background-color: var(--azul-escuro);
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        img {
-            width: 600px;
-            max-width: 90%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
+        ul li {
+            background: var(--verde-claro);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
         }
 
         footer {
@@ -109,47 +100,13 @@
             width: 100%;
             bottom: 0;
         }
-
-        footer p {
-            margin: 0;
-        }
-
-        .upload-container {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: var(--verde-claro);
-            border-radius: 10px;
-        }
-
-        .upload-container input[type="file"],
-        .upload-container input[type="password"],
-        .upload-container button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .upload-container button {
-            background-color: var(--amarelo);
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .upload-container button:hover {
-            background-color: var(--verde-escuro);
-            color: white;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Vôlei Brasil</h1>
-        <p>Bem-vindo ao mundo do vôlei!</p>
+        <p>Área de Alunos</p>
         <div class="header-buttons">
-           
             <a href="login.html">Login</a>
         </div>
     </header>
@@ -159,20 +116,12 @@
         <a href="categorias.html">Categorias</a>
         <a href="videos.html">Upload de Vídeo</a>
         <a href="alunos.html">Área de Alunos</a>
-        <a href="https://wa.me/940028922" target="_blank" 
-        style="display:inline-block; padding:12px 24px; margin:10px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">Contato</a>
-
+        <a href="https://wa.me/940028922" target="_blank" style="padding:12px 24px; background-color:#25D366; color:#fff; border-radius:8px; text-decoration:none;">Contato</a>
     </nav>
 
-    <section id="alunos" class="alunos">
-        <h2>Área de alunos</h2>
-        <div class="highlight">
-    
-            </div>
-
-    <section id="alunos" class="contato">
-        <h2>Área de Alunos</h2>
-        <p>Conteúdo exclusivo para alunos matriculados. Em breve!</p>
+    <section id="alunos">
+        <h2>Vídeos Disponíveis</h2>
+        <ul id="video-list"></ul>
     </section>
 
     <footer>
@@ -180,32 +129,19 @@
     </footer>
 
     <script>
-        const senhaCorreta = "1234";
-        const uploadForm = document.getElementById("upload-form");
-        const passwordField = document.getElementById("password");
-        const videoFileInput = document.getElementById("video-file");
-        const submitButton = uploadForm.querySelector("button");
+        // Pega os vídeos do localStorage
+        const videos = JSON.parse(localStorage.getItem('videos')) || [];
+        const videoList = document.getElementById('video-list');
 
-        passwordField.addEventListener("input", () => {
-            if (passwordField.value === senhaCorreta) {
-                videoFileInput.disabled = false;
-                submitButton.disabled = false;
-            } else {
-                videoFileInput.disabled = true;
-                submitButton.disabled = true;
-            }
-        });
-
-        uploadForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const file = videoFileInput.files[0];
-            if (file) {
-                alert("Vídeo enviado com sucesso!");
-                videoFileInput.value = "";
-            } else {
-                alert("Por favor, selecione um vídeo.");
-            }
-        });
+        if (videos.length === 0) {
+            videoList.innerHTML = '<li>Nenhum vídeo disponível ainda.</li>';
+        } else {
+            videos.forEach(nomeDoVideo => {
+                const li = document.createElement('li');
+                li.textContent = nomeDoVideo;
+                videoList.appendChild(li);
+            });
+        }
     </script>
 </body>
 </html>
