@@ -192,7 +192,41 @@
             } else {
                 alert("Por favor, selecione um vídeo.");
             }
-        });
+        const senhaCorreta = "1234";
+    const uploadForm = document.getElementById("upload-form");
+    const passwordField = document.getElementById("password");
+    const videoFileInput = document.getElementById("video-file");
+    const submitButton = uploadForm.querySelector("button");
+
+    passwordField.addEventListener("input", () => {
+        if (passwordField.value === senhaCorreta) {
+            videoFileInput.disabled = false;
+            submitButton.disabled = false;
+        } else {
+            videoFileInput.disabled = true;
+            submitButton.disabled = true;
+        }
+    });
+
+    uploadForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const file = videoFileInput.files[0];
+        if (file) {
+            // Salva o nome do vídeo no localStorage
+            let videos = JSON.parse(localStorage.getItem("videos")) || [];
+            videos.push(file.name);
+            localStorage.setItem("videos", JSON.stringify(videos));
+            
+            alert("Vídeo enviado com sucesso!");
+            
+            videoFileInput.value = "";
+            passwordField.value = "";
+            videoFileInput.disabled = true;
+            submitButton.disabled = true;
+        } else {
+            alert("Por favor, selecione um vídeo.");
+        }
+    });
     </script>
 </body>
 </html>
