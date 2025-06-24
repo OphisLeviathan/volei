@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Vôlei - Upload de Vídeos</title>
     <style>
         :root {
@@ -15,10 +14,10 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--branco);
             color: var(--verde-escuro);
+            margin: 0;
+            padding: 0;
             font-size: 25px;
         }
 
@@ -142,8 +141,7 @@
         <a href="categorias.html">Categorias</a>
         <a href="videos.html">Upload de Vídeos</a>
         <a href="alunos.html">Área de Alunos</a>
-        <a href="https://wa.me/940028922" target="_blank" 
-        style="display:inline-block; padding:12px 24px; margin:10px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">Contato</a>
+        <a href="https://wa.me/940028922" target="_blank" style="padding:12px 24px; background-color:#25D366; color:#fff; border-radius:8px;">Contato</a>
     </nav>
 
     <section id="upload" class="upload-container">
@@ -184,7 +182,13 @@
             e.preventDefault();
             const file = videoFileInput.files[0];
             if (file) {
+                // Salva o nome do vídeo no localStorage
+                let videos = JSON.parse(localStorage.getItem("videos")) || [];
+                videos.push(file.name);
+                localStorage.setItem("videos", JSON.stringify(videos));
+                
                 alert("Vídeo enviado com sucesso!");
+                
                 videoFileInput.value = "";
                 passwordField.value = "";
                 videoFileInput.disabled = true;
@@ -192,41 +196,7 @@
             } else {
                 alert("Por favor, selecione um vídeo.");
             }
-        const senhaCorreta = "1234";
-    const uploadForm = document.getElementById("upload-form");
-    const passwordField = document.getElementById("password");
-    const videoFileInput = document.getElementById("video-file");
-    const submitButton = uploadForm.querySelector("button");
-
-    passwordField.addEventListener("input", () => {
-        if (passwordField.value === senhaCorreta) {
-            videoFileInput.disabled = false;
-            submitButton.disabled = false;
-        } else {
-            videoFileInput.disabled = true;
-            submitButton.disabled = true;
-        }
-    });
-
-    uploadForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const file = videoFileInput.files[0];
-        if (file) {
-            // Salva o nome do vídeo no localStorage
-            let videos = JSON.parse(localStorage.getItem("videos")) || [];
-            videos.push(file.name);
-            localStorage.setItem("videos", JSON.stringify(videos));
-            
-            alert("Vídeo enviado com sucesso!");
-            
-            videoFileInput.value = "";
-            passwordField.value = "";
-            videoFileInput.disabled = true;
-            submitButton.disabled = true;
-        } else {
-            alert("Por favor, selecione um vídeo.");
-        }
-    });
+        });
     </script>
 </body>
 </html>
