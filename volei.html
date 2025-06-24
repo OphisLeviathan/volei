@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Vôlei</title>
+    <style>
+        :root {
+            --verde-claro: #A8E6CF;
+            --amarelo: #FFEB3B;
+            --branco: #FFFFFF;
+            --verde-escuro: #388E3C;
+            --azul-escuro: #1A237E;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--branco);
+            color: var(--verde-escuro);
+            font-size: 25px;
+        }
+
+        header {
+            background-color: var(--verde-claro);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--verde-escuro);
+        }
+
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons a {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .header-buttons a:hover {
+            background-color: #0d155f;
+        }
+
+        nav {
+            background-color: var(--amarelo);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--verde-escuro);
+            font-weight: bold;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        .metodologia, .categorias, .contato {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--verde-escuro);
+        }
+
+        .highlight {
+            background-color: var(--azul-escuro);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        img {
+            width: 600px;
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .upload-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--verde-claro);
+            border-radius: 10px;
+        }
+
+        .upload-container input[type="file"],
+        .upload-container input[type="password"],
+        .upload-container button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .upload-container button {
+            background-color: var(--amarelo);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .upload-container button:hover {
+            background-color: var(--verde-escuro);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vôlei Brasil</h1>
+        <p>Bem-vindo ao mundo do vôlei!</p>
+        <div class="header-buttons">
+
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="volei.html">Metodologia</a>
+        <a href="categorias.html">Categorias</a>
+        <a href="videos.html">Upload de Vídeo</a>
+        <a href="alunos.html">Área de Alunos</a>
+        <a href="https://wa.me/940028922" target="_blank" 
+        style="display:inline-block; padding:12px 24px; margin:10px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">Contato</a>
+    </nav>
+
+    <section id="metodologia" class="metodologia">
+        <h2>Metodologia</h2>
+        <div class="highlight">
+            <p>Nosso programa de treinamento é baseado em uma combinação única de fundamentos técnicos, trabalho em equipe e respeito ao adversário.</p>
+        </div>
+        <p>Desenvolvemos habilidades motoras e cognitivas desde o nível iniciante até o avançado, com foco em proporcionar uma evolução gradual e consistente.</p>
+    
+        <ul>
+            <li><strong>Treino Técnico:</strong> Ensino progressivo dos fundamentos (toque, manchete, saque, bloqueio e ataque), com foco na execução correta e repetição.</li>
+            <li><strong>Treino Tático:</strong> Estudo das melhores formações, posicionamento em quadra e jogadas ensaiadas para diversas situações do jogo.</li>
+            <li><strong>Trabalho em Equipe:</strong> Jogos em equipe para desenvolvimento da comunicação, espírito esportivo e integração entre os atletas.</li>
+            <li><strong>Desenvolvimento Físico:</strong> Exercícios para resistência, força e agilidade, prevenindo lesões e aumentando a performance.</li>
+            <li><strong>Aspectos Cognitivos:</strong> Treinos que estimulam a concentração, tomada de decisão e análise estratégica durante o jogo.</li>
+        </ul>
+    
+        <p><em>Nossa equipe é formada por profissionais experientes e apaixonados pelo esporte. Oferecemos uma avaliação inicial para personalizar o treinamento conforme o nível e os objetivos de cada atleta.</em></p>
+    
+        <img src="afd2f9c9-25ee-4efe-86bb-687747ce1d70.png" alt="Imagem que representa a metodologia de treinamento no vôlei">
+    </section>
+    
+
+    
+    <footer>
+        <p>&copy; 2025 Vôlei Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const senhaCorreta = "1234";
+        const uploadForm = document.getElementById("upload-form");
+        const passwordField = document.getElementById("password");
+        const videoFileInput = document.getElementById("video-file");
+        const submitButton = uploadForm.querySelector("button");
+
+        passwordField.addEventListener("input", () => {
+            if (passwordField.value === senhaCorreta) {
+                videoFileInput.disabled = false;
+                submitButton.disabled = false;
+            } else {
+                videoFileInput.disabled = true;
+                submitButton.disabled = true;
+            }
+        });
+
+        uploadForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const file = videoFileInput.files[0];
+            if (file) {
+                alert("Vídeo enviado com sucesso!");
+                videoFileInput.value = "";
+            } else {
+                alert("Por favor, selecione um vídeo.");
+            }
+        });
+    </script>
+</body>
+</html>

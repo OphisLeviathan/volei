@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Vôlei - Upload de Vídeos</title>
+    <style>
+        :root {
+            --verde-claro: #A8E6CF;
+            --amarelo: #FFEB3B;
+            --branco: #FFFFFF;
+            --verde-escuro: #388E3C;
+            --azul-escuro: #1A237E;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--branco);
+            color: var(--verde-escuro);
+            font-size: 25px;
+        }
+
+        header {
+            background-color: var(--verde-claro);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--verde-escuro);
+        }
+
+        header p {
+            margin: 5px 0;
+        }
+
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons a {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .header-buttons a:hover {
+            background-color: #0d155f;
+        }
+
+        nav {
+            background-color: var(--amarelo);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--verde-escuro);
+            font-weight: bold;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        h2 {
+            color: var(--verde-escuro);
+        }
+
+        .highlight {
+            background-color: var(--azul-escuro);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .upload-container {
+            padding: 20px;
+            background-color: var(--verde-claro);
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .upload-container input[type="file"],
+        .upload-container input[type="password"],
+        .upload-container button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .upload-container button {
+            background-color: var(--amarelo);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .upload-container button:hover {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vôlei Brasil</h1>
+        <p>Bem-vindo ao mundo do vôlei!</p>
+        <div class="header-buttons">
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="volei.html">Metodologia</a>
+        <a href="categorias.html">Categorias</a>
+        <a href="videos.html">Upload de Vídeos</a>
+        <a href="alunos.html">Área de Alunos</a>
+        <a href="https://wa.me/940028922" target="_blank" 
+        style="display:inline-block; padding:12px 24px; margin:10px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">Contato</a>
+    </nav>
+
+    <section id="upload" class="upload-container">
+        <h2>Upload de Vídeos</h2>
+        <div class="highlight">
+            <p>Se você é instrutor(a) ou membro autorizado(a), use este formulário para enviar novos vídeos de treinos, partidas ou eventos.</p>
+        </div>
+        <p>Digite a senha e selecione um vídeo para fazer o envio:</p>
+        <form id="upload-form">
+            <input type="password" id="password" placeholder="Digite a senha" required>
+            <input type="file" id="video-file" accept="video/*" disabled>
+            <button type="submit" disabled>Enviar Vídeo</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Vôlei Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const senhaCorreta = "1234";
+        const uploadForm = document.getElementById("upload-form");
+        const passwordField = document.getElementById("password");
+        const videoFileInput = document.getElementById("video-file");
+        const submitButton = uploadForm.querySelector("button");
+
+        passwordField.addEventListener("input", () => {
+            if (passwordField.value === senhaCorreta) {
+                videoFileInput.disabled = false;
+                submitButton.disabled = false;
+            } else {
+                videoFileInput.disabled = true;
+                submitButton.disabled = true;
+            }
+        });
+
+        uploadForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const file = videoFileInput.files[0];
+            if (file) {
+                alert("Vídeo enviado com sucesso!");
+                videoFileInput.value = "";
+                passwordField.value = "";
+                videoFileInput.disabled = true;
+                submitButton.disabled = true;
+            } else {
+                alert("Por favor, selecione um vídeo.");
+            }
+        });
+    </script>
+</body>
+</html>

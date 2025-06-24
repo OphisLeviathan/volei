@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Vôlei</title>
+    <style>
+        :root {
+            --verde-claro: #A8E6CF;
+            --amarelo: #FFEB3B;
+            --branco: #FFFFFF;
+            --verde-escuro: #388E3C;
+            --azul-escuro: #1A237E;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--branco);
+            color: var(--verde-escuro);
+            font-size: 25px;
+        }
+
+        header {
+            background-color: var(--verde-claro);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--verde-escuro);
+        }
+
+        header p {
+            margin: 5px 0;
+        }
+
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons a {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .header-buttons a:hover {
+            background-color: #0d155f;
+        }
+
+        nav {
+            background-color: var(--amarelo);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--verde-escuro);
+            font-weight: bold;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        .metodologia, .categorias, .contato {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--verde-escuro);
+        }
+
+        .highlight {
+            background-color: var(--azul-escuro);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        img {
+            width: 600px;
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .upload-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--verde-claro);
+            border-radius: 10px;
+        }
+
+        .upload-container input[type="file"],
+        .upload-container input[type="password"],
+        .upload-container button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .upload-container button {
+            background-color: var(--amarelo);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .upload-container button:hover {
+            background-color: var(--verde-escuro);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vôlei Brasil</h1>
+        <p>Bem-vindo ao mundo do vôlei!</p>
+        <div class="header-buttons">
+           
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="volei.html">Metodologia</a>
+        <a href="categorias.html">Categorias</a>
+        <a href="videos.html">Upload de Vídeo</a>
+        <a href="alunos.html">Área de Alunos</a>
+        <a href="https://wa.me/940028922" target="_blank" 
+        style="display:inline-block; padding:12px 24px; margin:10px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:8px; text-decoration:none;">Contato</a>
+    </nav>
+
+    <section id="categorias" class="categorias">
+        <h2>Categorias</h2>
+        <div class="highlight">
+            <p>Oferecemos treinamento para todas as idades, gêneros e níveis de habilidade. Nosso objetivo é proporcionar um ambiente seguro e motivador, incentivando a evolução técnica, física e tática.</p>
+        </div>
+        <ul>
+            <li><strong>Feminino:</strong>
+                <ul>
+                    <li><strong>Iniciação (8–12):</strong> Introdução aos fundamentos do vôlei (toque, manchete, saque). Foco em coordenação motora e trabalho em equipe.</li>
+                    <li><strong>Juvenil (13–17):</strong> Desenvolvimento técnico e tático avançado, participação em campeonatos escolares e torneios regionais.</li>
+                    <li><strong>Adulto (18+):</strong> Treinos focados em condicionamento físico e competições amadoras e masters.</li>
+                </ul>
+            </li>
+            <li><strong>Masculino:</strong>
+                <ul>
+                    <li><strong>Iniciação (8–12):</strong> Atividades lúdicas e aprendizado dos fundamentos do vôlei, preparando o jovem para os próximos níveis.</li>
+                    <li><strong>Juvenil (13–17):</strong> Treinos intensivos e participação em ligas juvenis estaduais.</li>
+                    <li><strong>Adulto (18+):</strong> Treinos para atletas que desejam competir regularmente e/ou praticar como hobby com orientação profissional.</li>
+                </ul>
+            </li>
+            <li><strong>Misto:</strong>
+                <ul>
+                    <li><strong>Infanto-Misto (8–12):</strong> Jogos mistos e treinos recreativos para promover integração entre meninos e meninas.</li>
+                    <li><strong>Juvenil-Misto (13–17):</strong> Desenvolvimento da comunicação em quadra, participação em eventos interescolares e festivais.</li>
+                    <li><strong>Recreativo-Misto (18+):</strong> Ambiente inclusivo para quem deseja jogar de forma descontraída e fazer novos amigos.</li>
+                </ul>
+            </li>
+        </ul>
+        <p><em>Em todas as categorias há eventos e campeonatos internos e externos, além de encontros sociais para fortalecer o espírito de equipe e o respeito entre os atletas.</em></p>
+        <img src="cat.png" alt="Imagem de categorias no vôlei">
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Vôlei Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const senhaCorreta = "1234";
+        const uploadForm = document.getElementById("upload-form");
+        const passwordField = document.getElementById("password");
+        const videoFileInput = document.getElementById("video-file");
+        const submitButton = uploadForm.querySelector("button");
+
+        passwordField.addEventListener("input", () => {
+            if (passwordField.value === senhaCorreta) {
+                videoFileInput.disabled = false;
+                submitButton.disabled = false;
+            } else {
+                videoFileInput.disabled = true;
+                submitButton.disabled = true;
+            }
+        });
+
+        uploadForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const file = videoFileInput.files[0];
+            if (file) {
+                alert("Vídeo enviado com sucesso!");
+                videoFileInput.value = "";
+            } else {
+                alert("Por favor, selecione um vídeo.");
+            }
+        });
+    </script>
+</body>
+</html>
